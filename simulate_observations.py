@@ -8,6 +8,7 @@ import argparse
 from typing import List
 
 import numpy as np
+
 from astropy.coordinates import (
     EarthLocation,
     AltAz,
@@ -15,6 +16,7 @@ from astropy.coordinates import (
     ITRS,
     ICRS,
 )
+
 from astropy.coordinates import CartesianRepresentation, CartesianDifferential
 from astropy.time import Time
 import astropy.units as u
@@ -53,6 +55,7 @@ def teme_to_topocentric(tle1: str, tle2: str, times: List[Time], location: Earth
         itrs = teme.transform_to(ITRS(obstime=t))
         altaz = itrs.transform_to(AltAz(obstime=t, location=location))
         icrs = altaz.transform_to(ICRS())
+
         rows.append({
             'time': t.utc.iso,
             'ra_deg': icrs.ra.deg,
