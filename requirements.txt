@@ -1,0 +1,9 @@
+poliastro
+astropy
+numpy
+scipy
+matplotlib
+opencv-python
+astrometrynet
+astroquery
+sgp4
